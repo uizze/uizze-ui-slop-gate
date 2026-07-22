@@ -31,7 +31,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 2
-      - uses: samuelbushi/uizze-ui-slop-gate@v1
+      - uses: uizze/uizze-ui-slop-gate@v1
         with:
           fail-on: error
 ```
@@ -66,7 +66,7 @@ A manifest can name files and record product states that reviewers verified else
 ```
 
 ```yaml
-- uses: samuelbushi/uizze-ui-slop-gate@v1
+- uses: uizze/uizze-ui-slop-gate@v1
   with:
     manifest: .github/uizze-ui-evidence.json
 ```
