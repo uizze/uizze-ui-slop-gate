@@ -16,6 +16,12 @@ test('annotation escapes GitHub workflow command data', () => {
   assert.equal(commandValue('a%b\nc'), 'a%25b%0Ac');
 });
 
+test('annotation level can follow the configured failure threshold', () => {
+  const writes = [];
+  annotation(error, (line) => writes.push(line), 'warning');
+  assert.match(writes[0], /^::warning /);
+});
+
 test('summary puts the optional plain CTA after useful scan results', () => {
   const summary = buildSummary({ files: ['src/A.tsx'], findings: [warning], skipped: [], showUizzeLink: true });
   assert.ok(summary.indexOf('test-rule') < summary.indexOf('https://uizze.com'));

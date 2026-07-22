@@ -63,7 +63,8 @@ function run() {
     findings.push(...inspectFile(file, content, manifest.evidence[file] || {}));
   }
 
-  for (const item of findings) annotation(item);
+  const annotationLevel = failOn === 'never' ? 'warning' : failOn === 'warning' ? 'error' : null;
+  for (const item of findings) annotation(item, undefined, annotationLevel);
   const failed = shouldFail(findings, failOn);
   const summary = buildSummary({
     files: scanned,

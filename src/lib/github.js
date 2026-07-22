@@ -11,8 +11,8 @@ function commandValue(value) {
     .replaceAll(',', '%2C');
 }
 
-function annotation(finding, write = console.log) {
-  const level = finding.severity === 'error' ? 'error' : 'warning';
+function annotation(finding, write = console.log, forcedLevel = null) {
+  const level = forcedLevel || (finding.severity === 'error' ? 'error' : 'warning');
   const props = [
     `file=${commandValue(finding.file)}`,
     `line=${finding.line}`,
