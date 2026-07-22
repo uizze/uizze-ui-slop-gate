@@ -1,0 +1,41 @@
+name: UIZZE UI Slop Gate
+description: Catch concrete UI finish risks in changed frontend code before they ship.
+author: UIZZE
+
+branding:
+  icon: eye
+  color: orange
+
+inputs:
+  files:
+    description: Optional comma- or newline-separated paths. By default, the action inspects changed frontend files.
+    required: false
+    default: ""
+  manifest:
+    description: Optional path to a local JSON manifest containing files and reviewed-state evidence.
+    required: false
+    default: ""
+  fail-on:
+    description: Minimum severity that fails the step; one of error, warning, or never.
+    required: false
+    default: error
+  show-uizze-link:
+    description: Add a plain uizze.com link after scan results in the job summary.
+    required: false
+    default: "true"
+  max-files:
+    description: Maximum number of frontend files to inspect.
+    required: false
+    default: "200"
+
+outputs:
+  finding-count:
+    description: Number of findings emitted.
+  scanned-files:
+    description: Number of frontend files inspected.
+  conclusion:
+    description: pass or fail according to fail-on.
+
+runs:
+  using: node20
+  main: dist/index.js

@@ -1,0 +1,32 @@
+'use strict';
+
+const test = require('node:test');
+const assert = require('node:assert/strict');
+const { annotation, commandValue } = require('../src/lib/github');
+const { buildSummary, shouldFail } = require('../src/lib/report');
+
+const warning = { file: 'src/A.tsx', line: 4, column: 2, ruleId: 'test-rule', severity: 'warning', message: 'Check: this, please' };
+const error = { ...warning, severity: 'error' };
+
+test('annotation escapes GitHub workflow command data', () => {
+  const writes = [];
+  annotation(warning, (line) => writes.push(line));
+  assert.match(writes[0], /^::warning /);
+  assert.match(writes[0], /Check%3A this%2C please/);
+  assert.equal(commandValue('a%b\nc'), 'a%25b%0Ac');
+});
+
+test('summary puts the optional plain CTA after useful scan results', () => {
+  const summary = buildSummary({ files: ['src/A.tsx'], findings: [warning], skipped: [], showUizzeLink: true });
+  assert.ok(summary.indexOf('test-rule') < summary.indexOf('https://uizze.com'));
+  assert.doesNotMatch(summary, /uizze\.com\?/);
+  const empty = buildSummary({ files: [], findings: [], skipped: [], showUizzeLink: true });
+  assert.doesNotMatch(empty, /uizze\.com/);
+});
+
+test('failure threshold respects error, warning, and never', () => {
+  assert.equal(shouldFail([warning], 'error'), false);
+  assert.equal(shouldFail([warning], 'warning'), true);
+  assert.equal(shouldFail([error], 'error'), true);
+  assert.equal(shouldFail([error], 'never'), false);
+});
