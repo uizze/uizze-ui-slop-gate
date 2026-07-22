@@ -77,7 +77,7 @@ The Action reports observable source signals, not subjective design scores. A si
 
 ## Development
 
-Node 20 or newer is enough; there are no production or development dependencies.
+Node 20 or newer is enough for local development; GitHub runs the packaged Action on Node 24. There are no production or development dependencies.
 
 ```bash
 npm test

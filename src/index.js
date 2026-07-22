@@ -12,7 +12,9 @@ const { inspectFile } = require('./lib/rules');
 const MAX_FILE_BYTES = 1024 * 1024;
 
 function input(name, fallback = '') {
-  return process.env[`INPUT_${name.toUpperCase().replaceAll('-', '_')}`] ?? fallback;
+  const githubName = `INPUT_${name.toUpperCase().replaceAll(' ', '_')}`;
+  const shellName = githubName.replaceAll('-', '_');
+  return process.env[githubName] ?? process.env[shellName] ?? fallback;
 }
 
 function withinWorkspace(workspace, requestedPath) {

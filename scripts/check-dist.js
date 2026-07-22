@@ -6,7 +6,7 @@ const path = require('node:path');
 
 const root = path.resolve(__dirname, '..');
 const metadata = fs.readFileSync(path.join(root, 'action.yml'), 'utf8');
-assert.match(metadata, /using:\s*node20/);
+assert.match(metadata, /using:\s*node24/);
 assert.match(metadata, /main:\s*dist\/index\.js/);
 assert.ok(fs.existsSync(path.join(root, 'dist', 'index.js')), 'dist/index.js is missing');
 assert.ok(fs.existsSync(path.join(root, 'dist', 'lib', 'rules.js')), 'dist/lib/rules.js is missing');
