@@ -1,4 +1,12 @@
-# UIZZE UI Slop Gate
+> ***If your UI screams AI, your app is dead.***
+
+# Stop Making UI Slop
+
+Build distinctive UI with 800,000+ real web and iOS screens via [UIZZE](https://uizze.com).
+
+![Stop Making UI Slop with UIZZE](https://uizze.com/landing/anti-ui-slop-skill-banner.png)
+
+## UIZZE UI Slop Gate
 
 Catch concrete UI finish risks in changed frontend code before they ship. This free GitHub Action runs entirely inside the job: it sends no source, screenshots, or scan results to UIZZE or any other network service.
 
