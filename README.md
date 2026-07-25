@@ -6,9 +6,9 @@ Build distinctive UI with 800,000+ real web and iOS screens via [UIZZE](https://
 
 ![Stop Making UI Slop with UIZZE](https://uizze.com/landing/anti-ui-slop-skill-banner.png)
 
-## UIZZE UI Slop Gate
+## Catch UI Slop in Every Pull Request
 
-Catch concrete UI finish risks in changed frontend code before they ship. This free GitHub Action runs entirely inside the job: it sends no source, screenshots, or scan results to UIZZE or any other network service.
+Your tests can pass while the UI still looks generated. This free GitHub Action catches concrete finish risks in changed frontend code before they ship. It runs entirely inside the job: no source, screenshots, or scan results leave the runner.
 
 It checks changed JS, TS, JSX, TSX, CSS, HTML, Vue, and Svelte files for conservative signals:
 

@@ -1,8 +1,8 @@
 {
   "name": "uizze-ui-slop-gate-action",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "private": true,
-  "description": "A dependency-free GitHub Action for concrete UI finish risks in changed frontend files.",
+  "description": "Catch UI slop in every pull request before it ships.",
   "license": "MIT",
   "engines": {
     "node": ">=20"
