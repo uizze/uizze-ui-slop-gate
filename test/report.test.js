@@ -24,7 +24,8 @@ test('annotation level can follow the configured failure threshold', () => {
 
 test('summary puts the optional plain CTA after useful scan results', () => {
   const summary = buildSummary({ files: ['src/A.tsx'], findings: [warning], skipped: [], showUizzeLink: true });
-  assert.ok(summary.indexOf('test-rule') < summary.indexOf('https://uizze.com'));
+  assert.ok(summary.indexOf('test-rule') < summary.indexOf('https://uizze.com/tools/ui-slop-score'));
+  assert.match(summary, /visual second opinion/);
   assert.doesNotMatch(summary, /uizze\.com\?/);
   const empty = buildSummary({ files: [], findings: [], skipped: [], showUizzeLink: true });
   assert.doesNotMatch(empty, /uizze\.com/);
