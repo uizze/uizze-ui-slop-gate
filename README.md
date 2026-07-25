@@ -94,6 +94,8 @@ npm run verify
 
 `npm run build` copies the dependency-free source tree into `dist/`. Any release must include the rebuilt `dist/` because GitHub Actions does not run an install or build step for consumers.
 
+Release verification runs in the separate [UIZZE Action Verification](https://github.com/uizze/uizze-action-verification) repository. Keeping that workflow outside this package preserves GitHub Marketplace eligibility while retaining an independently reproducible release check.
+
 ## Privacy and security
 
 The runtime reads only local event metadata, Git history, explicitly selected source files, and an optional local manifest. It contains no HTTP client and performs no network transmission. See [SECURITY.md](SECURITY.md) for reporting and hardening guidance.
