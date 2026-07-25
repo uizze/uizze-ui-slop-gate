@@ -20,7 +20,7 @@ inputs:
     required: false
     default: error
   show-uizze-link:
-    description: Add a plain uizze.com link after scan results in the job summary.
+    description: Offer the free UIZZE visual second opinion after scan results in the job summary.
     required: false
     default: "true"
   max-files:

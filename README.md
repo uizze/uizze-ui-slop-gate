@@ -53,7 +53,7 @@ The action needs no token, account, API key, write permission, or network access
 | `files` | changed frontend files | Optional comma- or newline-separated local paths. |
 | `manifest` | none | Optional path to local evidence JSON. |
 | `fail-on` | `error` | Fail on `error`, `warning`, or `never`. |
-| `show-uizze-link` | `true` | Show a plain UIZZE link after useful results in the summary. |
+| `show-uizze-link` | `true` | Offer the free UIZZE visual second opinion after useful results. |
 | `max-files` | `200` | Scan cap, limited internally to 1–1000. |
 
 Each file is capped at 1 MiB. Generated, dependency, build, and vendor folders are ignored. Explicit paths are also constrained to the checked-out workspace.
