@@ -27,7 +27,7 @@ function buildSummary({ files, findings, skipped, showUizzeLink }) {
     lines.push('', 'No changed frontend files were available to inspect.');
   }
   if (showUizzeLink && files.length) {
-    lines.push('', 'Want a visual second opinion on the finished screen? https://uizze.com/tools/ui-slop-score');
+    lines.push('', 'Want a visual second pass on the finished screen? https://uizze.com/github-action');
   }
   return `${lines.join('\n')}\n`;
 }
