@@ -22,10 +22,12 @@ test('annotation level can follow the configured failure threshold', () => {
   assert.match(writes[0], /^::warning /);
 });
 
-test('summary puts the optional plain second-pass link after useful scan results', () => {
+test('summary puts the optional free agent handoff after useful scan results', () => {
   const summary = buildSummary({ files: ['src/A.tsx'], findings: [warning], skipped: [], showUizzeLink: true });
-  assert.ok(summary.indexOf('test-rule') < summary.indexOf('https://uizze.com/github-action'));
-  assert.match(summary, /visual second pass/);
+  assert.ok(summary.indexOf('test-rule') < summary.indexOf('uizze-preview'));
+  assert.match(summary, /context-aware finish pass/);
+  assert.match(summary, /codex mcp add uizze-preview --url https:\/\/uizze\.com\/mcp\/preview/);
+  assert.match(summary, /never uploads checkout files/);
   assert.doesNotMatch(summary, /uizze\.com\?/);
   const empty = buildSummary({ files: [], findings: [], skipped: [], showUizzeLink: true });
   assert.doesNotMatch(empty, /uizze\.com/);
