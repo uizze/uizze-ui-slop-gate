@@ -27,7 +27,9 @@ function buildSummary({ files, findings, skipped, showUizzeLink }) {
     lines.push('', 'No changed frontend files were available to inspect.');
   }
   if (showUizzeLink && files.length) {
-    lines.push('', 'Want a visual second pass on the finished screen? https://uizze.com/github-action');
+    lines.push('', 'Need a context-aware finish pass? Add UIZZE\'s free agent preview:');
+    lines.push('', '`codex mcp add uizze-preview --url https://uizze.com/mcp/preview`');
+    lines.push('', 'Then ask it to run `check_ui_slop` on rendered HTML/CSS. This is optional; the GitHub Action itself never uploads checkout files.');
   }
   return `${lines.join('\n')}\n`;
 }

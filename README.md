@@ -53,10 +53,22 @@ The action needs no token, account, API key, write permission, or network access
 | `files` | changed frontend files | Optional comma- or newline-separated local paths. |
 | `manifest` | none | Optional path to local evidence JSON. |
 | `fail-on` | `error` | Fail on `error`, `warning`, or `never`. |
-| `show-uizze-link` | `true` | Offer the free UIZZE visual second opinion after useful results. |
+| `show-uizze-link` | `true` | Offer the free UIZZE agent preview after useful results. |
 | `max-files` | `200` | Scan cap, limited internally to 1–1000. |
 
 Each file is capped at 1 MiB. Generated, dependency, build, and vendor folders are ignored. Explicit paths are also constrained to the checked-out workspace.
+
+## Optional agent handoff
+
+The Action is deliberately local: it never uploads checkout files, screenshots, or findings. If a finding needs a more contextual next pass, add UIZZE's free no-token preview to the coding agent you already use:
+
+```bash
+codex mcp add uizze-preview --url https://uizze.com/mcp/preview
+```
+
+Then ask the agent to run `check_ui_slop` on the rendered HTML and CSS. That optional MCP call receives only the rendered artifacts you explicitly provide. It returns concrete UI-slop findings and fixes; it does not replace visual, accessibility, correctness, or security review.
+
+For Claude Code, Cursor, and other client setup, use the canonical [UIZZE MCP instructions](https://github.com/uizze/uizze-mcp#try-the-mcp-server-free).
 
 ## Optional review evidence
 
