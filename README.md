@@ -74,6 +74,8 @@ For Claude Code, Cursor, and other client setup, use the canonical [UIZZE MCP in
 
 The local gate reads source. When a changed screen needs a visual second opinion, use the free [UI Slop Score](https://uizze.com/tools/ui-slop-score): drop one rendered web or iOS screenshot, get visible evidence and a PR-ready repair note, then share the diagnosis without sharing the screen. No signup; the screenshot is processed transiently. It reviews product specificity and common generic patterns—it does not claim to detect who made the UI.
 
+Want to see the boundary of this workflow before trying it? [Inspect one recorded same-prompt case](https://benchmark.uizze.com/recordings/billing-settings-v1/): the seed, raw captures, diffs, and a narrow 96/100 to 98/100 result are public. It is one recorded case, not a benchmark result or quality guarantee.
+
 ## Optional review evidence
 
 A manifest can name files and record product states that reviewers verified elsewhere. Evidence only affects the missing-state check; it does not silence other rules.
